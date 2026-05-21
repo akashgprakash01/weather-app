@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherReports — Live Country Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="weather-scene" class="weather-scene" aria-hidden="true">
+      <div class="scene-layer scene-sky"></div>
+      <div class="scene-layer scene-sun"></div>
+      <div class="scene-layer scene-clouds"></div>
+      <div class="scene-layer scene-rain"></div>
+      <div class="scene-layer scene-snow"></div>
+      <div class="scene-layer scene-fog"></div>
+      <div class="scene-layer scene-lightning"></div>
+    </div>
+
+    <div class="app">
+      <header class="header">
+        <div class="brand">
+          <span class="brand-icon" aria-hidden="true">◐</span>
+          <h1>WeatherReports</h1>
+        </div>
+        <div class="header-controls">
+          <label class="country-select-label" for="country-select">Country</label>
+          <select id="country-select" class="country-select" aria-label="Select country">
+            <option value="us">United States</option>
+            <option value="in">India</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ca">Canada</option>
+            <option value="au">Australia</option>
+          </select>
+          <button type="button" id="refresh-btn" class="btn-refresh" title="Refresh weather">
+            ↻ Refresh
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="hero" aria-live="polite">
+          <div class="hero-meta">
+            <p class="hero-location" id="hero-location">Select a city</p>
+            <p class="hero-date" id="hero-date">—</p>
+          </div>
+          <div class="hero-clock-block">
+            <time class="hero-clock" id="hero-clock" datetime="">00:00:00</time>
+            <span class="hero-timezone" id="hero-timezone"></span>
+          </div>
+          <div class="hero-weather">
+            <span class="hero-icon" id="hero-icon" aria-hidden="true">☀</span>
+            <div class="hero-temps">
+              <span class="hero-temp" id="hero-temp">—°</span>
+              <span class="hero-feels" id="hero-feels">Feels like —°</span>
+            </div>
+          </div>
+          <p class="hero-condition" id="hero-condition">Loading weather…</p>
+          <dl class="hero-stats">
+            <div>
+              <dt>Humidity</dt>
+              <dd id="hero-humidity">—</dd>
+            </div>
+            <div>
+              <dt>Wind</dt>
+              <dd id="hero-wind">—</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="cities-section">
+          <h2 class="section-title">
+            <span id="country-label">United States</span> — live conditions
+          </h2>
+          <p class="section-hint">Click a city to view details. Times update every second.</p>
+          <div class="cities-grid" id="cities-grid" role="list"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Data from
+          <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+          · No API key required
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
